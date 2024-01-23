@@ -4,7 +4,7 @@ import json
 apiKey = "1bcff021a86229cf441db3cfed0fdf88"
 
 
-class geoCoding:
+class main:
     def __init__(self, city, country):
         self.city = city
         self.country = country
@@ -35,7 +35,7 @@ class geoCoding:
         self.lon = self.jsonResponse[0]["lon"]
 
 
-result = geoCoding("shiraz", "iran")
+result = main("shiraz", "iran")
 result.geoCaller()
 result.manipulator()
 result.weatherCaller()

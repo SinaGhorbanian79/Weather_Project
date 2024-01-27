@@ -4,10 +4,12 @@ import json
 apiKey = "1bcff021a86229cf441db3cfed0fdf88"
 
 
-class main:
+class WeatherProject:
     def __init__(self, city, country):
         self.city = city
         self.country = country
+        self.lat = None
+        self.lon = None
 
     def apiCaller(self, url, parameter):
         self.url = url
@@ -35,25 +37,10 @@ class main:
         self.lon = self.jsonResponse[0]["lon"]
 
 
-result = main("shiraz", "iran")
-result.geoCaller()
-result.manipulator()
-result.weatherCaller()
+if __name__ == "__main__":
+    result = WeatherProject("shiraz", "iran")
+    result.geoCaller()
+    result.manipulator()
+    result.weatherCaller()
 
 print(result.response.text)
-
-
-# class currentWeather:
-#     def __init__(self, lat, lon):
-#         self.lat = lat
-#         self.lon = lon
-
-#     self.response = geoCoding.apiCaller
-
-
-# geoCoder = geoCoding("mashhad", "iran")
-# geoCoder.apiCaller()
-# geoCoder.manipulator()
-# weatherDisplayer = currentWeather(geoCoder.lat, geoCoder.lon)
-
-# params={"q": self.city + "," + self.country, "appid": apiKey}
